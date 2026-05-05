@@ -32,18 +32,28 @@ class MeterService:
 
         return readings
     
-    #process the readings and identify households with excess energy 
+    #process the readings and identify generate excess energy events 
     def process_meter_readings(self):
         readings = self.read_meter_readings() #get all readings
+        events = []
 
         #get each reading fromthe loop
         for reading in readings:
             #Check if household has excess energy
             if reading.has_excess_energy():
-                print(
-                    f"[INFO] {reading.household_id} has "
-                    f"{round(reading.excess_energy(), 2)} kWh excess energy"
-                )
+                #create event for excess energy
+                event = {
+                    "event_type": "ExcessEnergyDetected",
+                    "meter_id": reading.meter_id,
+                    "household_id": reading.household_id,
+                    "timestamp": reading.timestamp.strftime("%Y-%m-%d %H:%M"),
+                    "excess_kwh": round(reading.excess_energy(), 2)
+                }
+
+                print(f"[EVENT] {event}")
+                events.append(event)
             else:
                 print(f"[INFO] No excess energy for {reading.household_id}")
+        
+        return events # return all events
     
