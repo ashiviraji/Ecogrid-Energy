@@ -1,12 +1,20 @@
 
-#for meter service------------
+#------------begin smart meter execution------------
 
 from meter_service import MeterService
 
-# Create MeterService object
-meter = MeterService()
 
-# Run processing function
-meter.process_meter_readings()
+def main():
+    print("Starting EcoGrid Smart Meter Processing...\n")
 
-#--------meter service---------
+    meter_service = MeterService()
+    processed_results = meter_service.process_meter_readings()
+
+    print("\nProcessed Results:")
+    print(processed_results)
+
+
+if __name__ == "__main__":
+    main()
+
+#------------end smart meter execution------------
