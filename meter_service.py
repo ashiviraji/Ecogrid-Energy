@@ -31,3 +31,19 @@ class MeterService:
                 readings.append(reading) #add to the list
 
         return readings
+    
+    #process the readings and identify households with excess energy 
+    def process_meter_readings(self):
+        readings = self.read_meter_readings() #get all readings
+
+        #get each reading fromthe loop
+        for reading in readings:
+            #Check if household has excess energy
+            if reading.has_excess_energy():
+                print(
+                    f"[INFO] {reading.household_id} has "
+                    f"{round(reading.excess_energy(), 2)} kWh excess energy"
+                )
+            else:
+                print(f"[INFO] No excess energy for {reading.household_id}")
+    
