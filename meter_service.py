@@ -20,6 +20,14 @@ class MeterService:
 
             #read each row
             for row in reader:
-                print(row)
+                # create objects for meter readings from csv
+                reading = MeterReading(
+                    meter_id=row["meter_id"],
+                    household_id=row["household_id"],
+                    timestamp=datetime.strptime(row["timestamp"], "%Y-%m-%d %H:%M"),
+                    generated_kwh=float(row["generated_kwh"]),
+                    consumed_kwh=float(row["consumed_kwh"])
+                )
+                readings.append(reading) #add to the list
 
         return readings
