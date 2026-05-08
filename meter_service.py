@@ -78,7 +78,7 @@ def ingest_reading(device_id: str, kwh_available: float, kwh_consumed: float) ->
     )
     db.publish(event)
     print(
-        f"  [MeterSvc] ⚡ Reading ingested — device={device_id}, "
+        f"  [MeterSvc] Reading ingested — device={device_id}, "
         f"available={kwh_available}kWh, consumed={kwh_consumed}kWh"
     )
     return reading

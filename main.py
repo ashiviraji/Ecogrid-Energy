@@ -14,8 +14,8 @@ def section(title: str):
     print(f"{'═' * width}")
 
 
-def subsection(title: str):
-    print(f"\n  ── {title} {'─' * (50 - len(title))}")
+def subsection(title: str): 
+    print(f"\n - {title} {'-' * (50 - len(title))}")
 
 
 def print_dict_list(items: list):
