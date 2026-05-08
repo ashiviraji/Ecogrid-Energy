@@ -15,8 +15,8 @@ import data_store as db
 from models import MeterReading, KafkaEvent, new_id
 
 
-# ── Device registry (simulates IoT device registration) ──────────────────────
-# Maps device_id → user_id (which household owns this meter)
+# -- Device registry (simulates IoT device registration) -----------------------------
+# Maps device_id -> user_id (which household owns this meter)
 _device_registry: dict = {}
 
 
