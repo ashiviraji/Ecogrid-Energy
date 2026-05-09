@@ -139,6 +139,7 @@ def match_trade(bid_id: str) -> MatchedTrade:
     if not offer or offer.status != TradeStatus.PENDING:
         raise ValueError(f"Offer {bid.offer_id} is unavailable for matching")
 
+
     # Matching logic: buyer must accept seller's price
     if bid.max_price_per_kwh < offer.price_per_kwh:
         offer.status=TradeStatus.CANCELLED
