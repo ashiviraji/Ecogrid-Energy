@@ -207,7 +207,7 @@ def main():
 
     subsection("Kafka Topic Status (pending messages)")
     for topic, count in db.topic_summary().items():
-        status = "empty" if count == 0 else f"⚠️  {count} unconsumed"
+        status = "empty" if count == 0 else f"  {count} unconsumed"
         print(f"    [{topic}]  {status}")
 
     print(f"\n{'*' * 60}")
