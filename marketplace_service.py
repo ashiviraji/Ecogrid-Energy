@@ -123,7 +123,6 @@ def place_bid(buyer_id: str, offer_id: str, kwh_requested: float, max_price_per_
     )
     return bid
 
-
 # ── Trade Matching Engine ─────────────────────────────────────────────────────
 
 def match_trade(bid_id: str) -> MatchedTrade:
@@ -139,6 +138,7 @@ def match_trade(bid_id: str) -> MatchedTrade:
     offer = db.energy_offers.get(bid.offer_id)
     if not offer or offer.status != TradeStatus.PENDING:
         raise ValueError(f"Offer {bid.offer_id} is unavailable for matching")
+
 
     # Matching logic: buyer must accept seller's price
     if bid.max_price_per_kwh < offer.price_per_kwh:
