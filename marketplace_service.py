@@ -123,7 +123,6 @@ def place_bid(buyer_id: str, offer_id: str, kwh_requested: float, max_price_per_
     )
     return bid
 
-
 # ── Trade Matching Engine ─────────────────────────────────────────────────────
 
 def match_trade(bid_id: str) -> MatchedTrade:
