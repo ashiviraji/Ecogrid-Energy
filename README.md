@@ -37,7 +37,7 @@ Or
 
 py main.py
 
-he system will simulate:
+The system will simulate:
 
 User registration
 Smart meter data ingestion
